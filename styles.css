@@ -793,3 +793,14 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--border);
   background: #0a0c10;
 }
+
+.video-duo-sound {
+  background: transparent;
+  color: var(--text-dim);
+  border-color: var(--border);
+}
+.video-duo-sound:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  border-color: var(--text-dim);
+}

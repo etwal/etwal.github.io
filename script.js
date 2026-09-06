@@ -108,6 +108,27 @@ document.querySelectorAll(".video-duo").forEach((duo) => {
     });
   });
 
+  // Optional sound toggle. Clips marked data-silent have no audio track and
+  // stay muted regardless, so the button only ever affects the clip with sound.
+  const sound = duo.querySelector(".video-duo-sound");
+  if (sound) {
+    const soundLabel = sound.querySelector("span");
+    const audible = videos.filter((v) => v.dataset.silent !== "true");
+    const syncSound = () => {
+      const on = audible.some((v) => !v.muted);
+      if (soundLabel) soundLabel.textContent = on ? "Mute" : "Unmute";
+      sound.setAttribute("aria-pressed", String(on));
+    };
+    sound.addEventListener("click", () => {
+      const on = audible.some((v) => !v.muted);
+      audible.forEach((v) => {
+        v.muted = on;
+      });
+      syncSound();
+    });
+    syncSound();
+  }
+
   pickLead();
   setLabel();
 });
