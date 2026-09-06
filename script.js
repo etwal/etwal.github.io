@@ -90,17 +90,21 @@ document.querySelectorAll(".video-duo").forEach((duo) => {
   videos.forEach((v) => v.addEventListener("click", () => (playing() ? pauseAll() : playAll())));
   if (scrub) scrub.addEventListener("input", () => seekAll(Number(scrub.value)));
 
-  lead.addEventListener("timeupdate", render);
-
-  // Restart the pair together so they never drift apart across loops.
-  lead.addEventListener("ended", () => {
-    seekAll(0);
-    playAll();
-  });
-  // The shorter clip holds on its last frame until the pair restarts.
+  // Listeners go on every clip and check against the current lead, because
+  // which clip leads is only known once durations load.
   videos.forEach((v) => {
+    v.addEventListener("timeupdate", () => {
+      if (v === lead) render();
+    });
     v.addEventListener("ended", () => {
-      if (v !== lead) v.pause();
+      if (v === lead) {
+        // Restart the pair together so they never drift apart across loops.
+        seekAll(0);
+        playAll();
+      } else {
+        // The shorter clip holds on its last frame until the pair restarts.
+        v.pause();
+      }
     });
   });
 
