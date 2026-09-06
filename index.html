@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ehsan Al Twal | Software, Firmware &amp; Robotics</title>
-<meta name="description" content="Portfolio of Ehsan Al Twal, Engineering Physics student at UBC specializing in Software/Firmware and Robotics, and Software Engineer at Sanctuary AI." />
+<title>Ehsan Al Twal | Robot Software Engineer</title>
+<meta name="description" content="Portfolio of Ehsan Al Twal, Engineering Physics student at UBC specialized in Robot Software Engineering, and Robot Software Engineer at Sanctuary AI." />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,6 +20,7 @@
     <a href="#top" class="logo">EA<span>.</span></a>
     <nav class="nav-links" id="nav-links">
       <a href="#about">About</a>
+      <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
@@ -37,8 +38,8 @@
     <div class="hero-inner">
       <p class="eyebrow">Hello, I'm</p>
       <h1>Ehsan Al Twal</h1>
-      <p class="hero-role">Software, Firmware &amp; Robotics <span class="dot">·</span> Engineering Physics @ UBC</p>
-      <p class="hero-current">Software Engineer at Sanctuary AI</p>
+      <p class="hero-role">Robot Software Engineering <span class="dot">·</span> Engineering Physics @ UBC</p>
+      <p class="hero-current">Robot Software Engineer at Sanctuary AI</p>
       <p class="hero-sub">Graduating December 2026. I build things where hardware meets software: autonomous robots, embedded firmware, computer vision, and circuit boards that keep the magic smoke inside.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -64,14 +65,14 @@
       <p class="section-tag">01 / About</p>
       <div class="about-grid">
         <p class="about-text">
-          I am a 5th-year Engineering Physics student at the University of British Columbia, specializing in Software/Firmware and Robotics, and I graduate in December 2026. Alongside my degree I work as a Software Engineer at Sanctuary AI.
+          I am a final-year Engineering Physics student at the University of British Columbia, specialized in Robot Software Engineering, and I graduate in December 2026. Alongside my degree I work as a Robot Software Engineer at Sanctuary AI.
           I like projects that force me to work across the whole stack, from board bring-up and embedded firmware up through control loops, computer vision, and the occasional Unity game built for fun.
           For my capstone I built the controls stack for PAWS, a voice controlled autonomous guide dog on a Unitree Go2 quadruped that navigates crowded indoor spaces, and the year before that I owned the Class E driver circuit that creates and confines a plasma toroid for the Plasma Donut Controller. On UBC Formula Electric I design the PCBs that keep our race car's battery pack alive and monitored. Outside of that I have built autonomous robots, trained CNNs to read the world, and written a fair amount of Assembly and VHDL I am still proud of.
         </p>
         <div class="about-stats">
           <div class="stat">
             <span class="stat-num stat-num-sm">Sanctuary AI</span>
-            <span class="stat-label">Software Engineer</span>
+            <span class="stat-label">Robot Software Engineer</span>
           </div>
           <div class="stat">
             <span class="stat-num">2026</span>
@@ -86,41 +87,105 @@
     </div>
   </section>
 
-  <section id="skills" class="section section-alt">
+
+  <section id="experience" class="section section-alt">
     <div class="section-inner">
-      <p class="section-tag">02 / Skills</p>
+      <p class="section-tag">02 / Experience</p>
+      <h2 class="section-title">Where I have worked</h2>
+
+      <div class="experience-list">
+
+        <article class="role">
+          <div class="role-head">
+            <div class="role-id">
+              <h3>Robot Software Engineer</h3>
+              <p class="role-org">Sanctuary AI</p>
+            </div>
+            <p class="role-meta"><span class="role-dates">Dec 2025 to Present</span><span class="role-place">Vancouver, Canada</span></p>
+          </div>
+          <ul>
+            <li><strong>Implemented a custom fault publisher and recovery controller</strong> to ensure safe fault recovery for bimanual dual UR robotic systems.</li>
+            <li><strong>Architected "MockCAT," an EtherCAT slave simulator</strong> that enables the software team to develop software and emulate full robotic hand networks without hardware.</li>
+            <li><strong>Deployed an IgH EtherCAT master on an NVIDIA Jetson Orin</strong> to control hydraulic robot hands, achieving stable 1 kHz control loops.</li>
+            <li><strong>Benchmarked real-time control paths across computing architectures</strong>, isolating DDS middleware latency to optimize the hand controller's network topology.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role-head">
+            <div class="role-id">
+              <h3>Firmware Engineer</h3>
+              <p class="role-org">Sanctuary AI</p>
+            </div>
+            <p class="role-meta"><span class="role-dates">May 2025 to Dec 2025</span><span class="role-place">Vancouver, Canada</span></p>
+          </div>
+          <ul>
+            <li><strong>Developed the robot's hydraulic power unit firmware on AX58400:</strong> system monitoring, safety interlocks, fan control, ECAT communication, and dual-core IPC.</li>
+            <li><strong>Tripled team throughput</strong> by building a local EtherCAT dev and test suite GUI, replacing a shared Speedgoat resource and parallelizing development. Added a Pytest tool automating 75 PDO tests per second.</li>
+            <li><strong>Developed a full-stack tactile data pipeline</strong> (firmware, EtherCAT master and slave, and a ROS 2 bridge) to stream sensor data and enable live teleoperation haptics.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role-head">
+            <div class="role-id">
+              <h3>Electrical Engineer / Firmware Engineer</h3>
+              <p class="role-org">Sarcomere Dynamics</p>
+            </div>
+            <p class="role-meta"><span class="role-dates">May 2024 to Dec 2024</span><span class="role-place">Vancouver, Canada</span></p>
+          </div>
+          <ul>
+            <li><strong>Achieved a 3x product cost reduction</strong> by designing a new electrical system and control firmware in C on STM32 for a new robotic hand.</li>
+            <li><strong>Extended product lifespan from 1 to 5 years</strong> by redesigning the electrical system with BLDC motors, designing a motor controller PCB, and developing an FOC library.</li>
+            <li><strong>Reduced motor size by 30% and improved accuracy</strong> by replacing Hall effect sensors with a magnetic sensor and current sensing.</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="section-inner">
+      <p class="section-tag">03 / Skills</p>
       <div class="skills-grid">
         <div class="skill-card">
           <h3>Robotics &amp; Controls</h3>
           <div class="tags">
-            <span>ROS / ROS 2</span><span>Pure Pursuit</span><span>PID Control</span><span>LiDAR SLAM</span><span>Path Planning</span><span>Autonomous Navigation</span><span>Sensor Fusion</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Computer Vision &amp; ML</h3>
-          <div class="tags">
-            <span>Convolutional Neural Networks</span><span>Transformers</span><span>PyTorch</span><span>OpenCV</span><span>SIFT</span><span>Python</span>
+            <span>ROS 2</span><span>EtherCAT</span><span>DDS</span><span>LiDAR SLAM</span><span>Pure Pursuit</span><span>PID / PD Control</span><span>Path Planning</span><span>Sensor Fusion</span><span>NVIDIA Jetson</span>
           </div>
         </div>
         <div class="skill-card">
           <h3>Firmware &amp; Embedded</h3>
           <div class="tags">
-            <span>STM32</span><span>PCB Design</span><span>Circuit Debugging</span><span>Assembly</span><span>VHDL</span><span>I2C / isoSPI</span>
+            <span>C / C++</span><span>STM32</span><span>AX58400</span><span>Teensy 4.0</span><span>RTOS</span><span>FOC</span><span>BLDC Motor Control</span><span>SPI / I2C / CAN</span><span>J-Link</span><span>Assembly</span><span>VHDL</span>
           </div>
         </div>
         <div class="skill-card">
-          <h3>Software</h3>
+          <h3>Electrical</h3>
           <div class="tags">
-            <span>C / C++</span><span>C#</span><span>Python</span><span>Unity</span><span>PyQt</span><span>Git</span>
+            <span>Electrical Systems Design</span><span>PCB Design (Altium)</span><span>Circuit Debugging</span><span>Soldering</span><span>RF</span><span>FPGAs (DE1-SoC)</span><span>isoSPI</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Computer Vision &amp; ML</h3>
+          <div class="tags">
+            <span>Convolutional Neural Networks</span><span>Transformers</span><span>PyTorch</span><span>OpenCV</span><span>SIFT</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Software &amp; Tools</h3>
+          <div class="tags">
+            <span>Python</span><span>TypeScript</span><span>React</span><span>Docker</span><span>Linux</span><span>Bash</span><span>Git</span><span>Pytest</span><span>Doctest</span><span>MATLAB / Simulink</span><span>Java</span><span>C#</span><span>Unity</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="projects" class="section">
+  <section id="projects" class="section section-alt">
     <div class="section-inner">
-      <p class="section-tag">03 / Projects</p>
+      <p class="section-tag">04 / Projects</p>
       <h2 class="section-title">Selected work</h2>
 
       <div class="projects-grid">
@@ -237,9 +302,9 @@
     </div>
   </section>
 
-  <section id="contact" class="section section-alt">
+  <section id="contact" class="section">
     <div class="section-inner contact-inner">
-      <p class="section-tag">04 / Contact</p>
+      <p class="section-tag">05 / Contact</p>
       <h2 class="section-title">Let's talk</h2>
       <p class="contact-text">Open to interesting collaborations and conversations. The fastest way to reach me is email.</p>
       <div class="contact-actions">

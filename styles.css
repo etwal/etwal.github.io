@@ -722,3 +722,62 @@ img { max-width: 100%; display: block; }
 @media (max-width: 620px) {
   .video-duo-grid { grid-template-columns: 1fr; }
 }
+
+/* Experience */
+.experience-list {
+  display: grid;
+  gap: 20px;
+}
+.role {
+  padding: 26px 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.role-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 24px;
+  margin-bottom: 16px;
+}
+.role-id h3 {
+  margin: 0;
+  font-size: 1.12rem;
+}
+.role-org {
+  margin: 4px 0 0;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.role-meta {
+  margin: 0;
+  text-align: right;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+.role-dates,
+.role-place {
+  display: block;
+}
+.role-place { opacity: 0.7; }
+.role ul {
+  margin: 0;
+  padding-left: 1.15em;
+}
+.role li {
+  margin-bottom: 0.5em;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+.role li:last-child { margin-bottom: 0; }
+.role li strong {
+  color: var(--text);
+  font-weight: 600;
+}
+@media (max-width: 560px) {
+  .role { padding: 22px 20px; }
+  .role-meta { text-align: left; }
+}

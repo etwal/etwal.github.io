@@ -19,7 +19,7 @@ navLinks.querySelectorAll("a").forEach((link) => {
 });
 
 const revealTargets = document.querySelectorAll(
-  ".section-tag, .section-title, .about-grid, .skill-card, .project-card, .contact-inner > *"
+  ".section-tag, .section-title, .about-grid, .role, .skill-card, .project-card, .contact-inner > *"
 );
 revealTargets.forEach((el) => el.classList.add("reveal"));
 
