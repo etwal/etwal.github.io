@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ehsan Al Twal — Robotics &amp; Electrical Engineering</title>
-<meta name="description" content="Portfolio of Ehsan Al Twal, Engineering Physics student at UBC specializing in Robotics and Electrical Engineering." />
+<title>Ehsan Al Twal | Software, Firmware &amp; Robotics</title>
+<meta name="description" content="Portfolio of Ehsan Al Twal, Engineering Physics student at UBC specializing in Software/Firmware and Robotics, and Software Engineer at Sanctuary AI." />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,8 +37,9 @@
     <div class="hero-inner">
       <p class="eyebrow">Hello, I'm</p>
       <h1>Ehsan Al Twal</h1>
-      <p class="hero-role">Robotics &amp; Electrical Engineer <span class="dot">·</span> Engineering Physics @ UBC</p>
-      <p class="hero-sub">Graduating December 2026. I build things at the intersection of hardware and software — autonomous robots, embedded systems, computer vision, and circuit boards that don't let out the magic smoke.</p>
+      <p class="hero-role">Software, Firmware &amp; Robotics <span class="dot">·</span> Engineering Physics @ UBC</p>
+      <p class="hero-current">Software Engineer at Sanctuary AI</p>
+      <p class="hero-sub">Graduating December 2026. I build things where hardware meets software: autonomous robots, embedded firmware, computer vision, and circuit boards that keep the magic smoke inside.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">View Projects</a>
         <a href="assets/resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Download Resume</a>
@@ -60,25 +61,25 @@
 
   <section id="about" class="section">
     <div class="section-inner">
-      <p class="section-tag">01 — About</p>
+      <p class="section-tag">01 / About</p>
       <div class="about-grid">
         <p class="about-text">
-          I'm a 4th-year Engineering Physics student at the University of British Columbia, specializing in Robotics and Electrical Engineering, graduating in December 2026.
-          I like projects that force me to work across the whole stack — from PCB layout and embedded firmware up through control loops, computer vision, and the occasional Unity game built for fun.
-          On UBC Formula Electric I design the PCBs that keep our race car's battery pack alive and monitored; outside of that I've built autonomous robots, trained CNNs to read the world, and written a fair amount of Assembly and VHDL I'm still proud of.
+          I am a 5th-year Engineering Physics student at the University of British Columbia, specializing in Software/Firmware and Robotics, and I graduate in December 2026. Alongside my degree I work as a Software Engineer at Sanctuary AI.
+          I like projects that force me to work across the whole stack, from board bring-up and embedded firmware up through control loops, computer vision, and the occasional Unity game built for fun.
+          On UBC Formula Electric I design the PCBs that keep our race car's battery pack alive and monitored. Outside of that I have built autonomous robots, trained CNNs to read the world, and written a fair amount of Assembly and VHDL I am still proud of.
         </p>
         <div class="about-stats">
           <div class="stat">
+            <span class="stat-num stat-num-sm">Sanctuary AI</span>
+            <span class="stat-label">Software Engineer</span>
+          </div>
+          <div class="stat">
             <span class="stat-num">2026</span>
-            <span class="stat-label">Graduating</span>
+            <span class="stat-label">Graduating December</span>
           </div>
           <div class="stat">
             <span class="stat-num">7+</span>
             <span class="stat-label">Projects shipped</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num">UBC</span>
-            <span class="stat-label">Formula Electric</span>
           </div>
         </div>
       </div>
@@ -87,7 +88,7 @@
 
   <section id="skills" class="section section-alt">
     <div class="section-inner">
-      <p class="section-tag">02 — Skills</p>
+      <p class="section-tag">02 / Skills</p>
       <div class="skills-grid">
         <div class="skill-card">
           <h3>Robotics &amp; Controls</h3>
@@ -102,9 +103,9 @@
           </div>
         </div>
         <div class="skill-card">
-          <h3>Electrical &amp; Embedded</h3>
+          <h3>Firmware &amp; Embedded</h3>
           <div class="tags">
-            <span>PCB Design</span><span>Circuit Debugging</span><span>Assembly</span><span>VHDL</span><span>I2C / isoSPI</span>
+            <span>STM32</span><span>PCB Design</span><span>Circuit Debugging</span><span>Assembly</span><span>VHDL</span><span>I2C / isoSPI</span>
           </div>
         </div>
         <div class="skill-card">
@@ -119,89 +120,94 @@
 
   <section id="projects" class="section">
     <div class="section-inner">
-      <p class="section-tag">03 — Projects</p>
+      <p class="section-tag">03 / Projects</p>
       <h2 class="section-title">Selected work</h2>
 
       <div class="projects-grid">
 
-        <article class="project-card featured">
+        <a class="project-card featured" href="projects/ubc-formula-electric.html">
           <div class="project-media">
             <img src="assets/img/ubc-formula-electric.png" alt="Battery management PCB designed for UBC Formula Electric" loading="lazy" />
           </div>
           <div class="project-body">
             <h3>UBC Formula Electric</h3>
-            <p>Hardware sub-team member on UBC's Formula SAE Electric race car. I design PCBs for the battery management system — including a 4-layer monolithic module that balances and monitors 16 Li-ion cells via an LTC6813 chip over isoSPI — plus pump control, GPS, and IMU circuits. I built a test suite simulating a battery pack segment to debug and validate the module.</p>
+            <p>Hardware sub-team member on UBC's Formula SAE Electric race car. I design PCBs for the battery management system, including a 4-layer monolithic module that balances and monitors 16 Li-ion cells via an LTC6813 chip over isoSPI, plus pump control, GPS, and IMU circuits.</p>
             <div class="tags"><span>PCB Design</span><span>BMS</span><span>isoSPI</span><span>Circuit Debugging</span></div>
+            <span class="project-link">View project &rarr;</span>
           </div>
-        </article>
+        </a>
 
-        <article class="project-card featured">
+        <a class="project-card featured" href="projects/robot-race-car.html">
           <div class="project-media">
             <img src="assets/img/robot-race-car.gif" alt="Autonomous race car completing a 14 second lap" loading="lazy" />
           </div>
           <div class="project-body">
-            <h3>Autonomous Robot Race Car</h3>
-            <p>Built an autonomous race car with a team for a robotics competition — 14 second lap time. I worked across all three systems: electrical (dual DC motor + servo drive, custom H-bridges, IMU/magnetometer, ultrasonic and reflectance sensors), mechanical (aluminum chassis, Ackermann steering, Onshape CAD), and software (course mapping in Desmos and autonomous path following on a Blue Pill STM32).</p>
+            <h3>Robot Race Car</h3>
+            <p>An autonomous race car built with a team for a robotics competition, with a 14 second lap time. I worked across all three systems: electrical (dual DC motor and servo drive, custom H-bridges, IMU, ultrasonic and reflectance sensors), mechanical (aluminum chassis, Ackermann steering, Onshape CAD), and software (course mapping and autonomous path following on a Blue Pill STM32).</p>
             <div class="tags"><span>Embedded Systems</span><span>STM32</span><span>Sensor Fusion</span><span>CAD</span></div>
+            <span class="project-link">View project &rarr;</span>
           </div>
-        </article>
+        </a>
 
-        <article class="project-card">
+        <a class="project-card" href="projects/cnn-text-robot.html">
           <div class="project-media">
             <img src="assets/img/cnn-text-robot.gif" alt="ROS robot reading clues on a course and predicting text with a CNN" loading="lazy" />
           </div>
           <div class="project-body">
             <h3>CNN Text Recognition ROS Robot</h3>
-            <p>A ROS robot that drives a course using PID line-following and vision-based obstacle avoidance, captures images of roadside "clues," and reads them with a convolutional neural network trained to classify the text — scoring correctly in live runs.</p>
+            <p>A ROS robot that drives a course using PID line following and vision based obstacle avoidance, captures images of roadside clues, and reads them with a convolutional neural network trained to classify the text.</p>
             <div class="tags"><span>ROS</span><span>PID</span><span>CNN</span><span>OpenCV</span></div>
+            <span class="project-link">View project &rarr;</span>
           </div>
-        </article>
+        </a>
 
-        <article class="project-card">
+        <a class="project-card" href="projects/sift-image-recognition.html">
           <div class="project-media">
-            <img src="assets/img/sift-image-recognition.gif" alt="SIFT-based homography tracker highlighting a target image in a live camera feed" loading="lazy" />
+            <img src="assets/img/sift-image-recognition.gif" alt="SIFT based homography tracker highlighting a target image in a live camera feed" loading="lazy" />
           </div>
           <div class="project-body">
             <h3>SIFT Image Recognition with GUI</h3>
             <p>A PyQt desktop app that detects a reference image live from a camera feed using SIFT keypoint matching and homography, drawing a tracking rectangle around it in real time.</p>
             <div class="tags"><span>SIFT</span><span>OpenCV</span><span>PyQt</span></div>
-            <a class="project-link" href="https://github.com/etwal/ENPH353_Lab4" target="_blank" rel="noopener">View code →</a>
+            <span class="project-link">View project &rarr;</span>
           </div>
-        </article>
+        </a>
 
-        <article class="project-card">
+        <a class="project-card" href="projects/cnn-license-plate.html">
           <div class="project-media">
             <img src="assets/img/cnn-license-plate.png" alt="Character predictions from a CNN trained on license plate characters" loading="lazy" />
           </div>
           <div class="project-body">
             <h3>CNN for License Plate Identification</h3>
-            <p>Trained a CNN to classify individual license-plate characters using one-hot encoded labels, on a self-built dataset of 540 character images split 60/20/20 for training, validation, and testing.</p>
+            <p>A CNN trained to classify individual license plate characters using one-hot encoded labels, on a self-built dataset of 540 character images split 60/20/20 for training, validation, and testing.</p>
             <div class="tags"><span>CNN</span><span>Python</span><span>Dataset Curation</span></div>
-            <a class="project-link" href="https://colab.research.google.com/drive/1lx1VQDmbiOqWBNAM61mtFnOFmIjT58-9?usp=sharing" target="_blank" rel="noopener">View notebook →</a>
+            <span class="project-link">View project &rarr;</span>
           </div>
-        </article>
+        </a>
 
-        <article class="project-card">
+        <a class="project-card" href="projects/calculator-alarm-clock.html">
           <div class="project-media">
             <img src="assets/img/calculator-alarm-clock.gif" alt="DE1-SoC board running a custom calculator and alarm clock" loading="lazy" />
           </div>
           <div class="project-body">
             <h3>Calculator &amp; Alarm Clock</h3>
-            <p>A hardware calculator written in Assembly on a DE1-SoC board — with custom modulo, hex, and integer square root routines — plus a 12-hour clock and alarm built in VHDL using Quartus, both driven entirely by onboard switches and keys.</p>
+            <p>A hardware calculator written in Assembly on a DE1-SoC board, with custom modulo, hex, and integer square root routines, plus a 12-hour clock and alarm built in VHDL using Quartus, both driven entirely by onboard switches and keys.</p>
             <div class="tags"><span>Assembly</span><span>VHDL</span><span>DE1-SoC</span></div>
+            <span class="project-link">View project &rarr;</span>
           </div>
-        </article>
+        </a>
 
-        <article class="project-card">
+        <a class="project-card" href="projects/down-the-clown.html">
           <div class="project-media">
             <img src="assets/img/down-the-clown.gif" alt="Gameplay from the mobile game Down the Clown" loading="lazy" />
           </div>
           <div class="project-body">
             <h3>Down The Clown</h3>
-            <p>A mobile game built solo in Unity for fun, after working through tutorials and documentation — environment, objects, and gameplay scripted in C#.</p>
+            <p>A mobile game built solo in Unity for fun, after working through tutorials and documentation. Environment, objects, and gameplay scripted in C#.</p>
             <div class="tags"><span>Unity</span><span>C#</span><span>Game Dev</span></div>
+            <span class="project-link">View project &rarr;</span>
           </div>
-        </article>
+        </a>
 
       </div>
     </div>
@@ -209,9 +215,9 @@
 
   <section id="contact" class="section section-alt">
     <div class="section-inner contact-inner">
-      <p class="section-tag">04 — Contact</p>
+      <p class="section-tag">04 / Contact</p>
       <h2 class="section-title">Let's talk</h2>
-      <p class="contact-text">Open to internships, co-ops, and interesting collaborations. The fastest way to reach me is email.</p>
+      <p class="contact-text">Open to interesting collaborations and conversations. The fastest way to reach me is email.</p>
       <div class="contact-actions">
         <a href="mailto:ehsantwal@gmail.com" class="btn btn-primary">ehsantwal@gmail.com</a>
         <a href="https://www.linkedin.com/in/ehsanaltwalubc/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>

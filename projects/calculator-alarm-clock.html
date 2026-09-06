@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Calculator &amp; Alarm Clock | Ehsan Al Twal</title>
+<meta name="description" content="Calculator &amp; Alarm Clock, a project by Ehsan Al Twal." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<div class="noise" aria-hidden="true"></div>
+
+<header class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">EA<span>.</span></a>
+    <nav class="nav-links" id="nav-links">
+      <a href="../index.html#projects">All Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../assets/resume.pdf" target="_blank" rel="noopener" class="btn btn-small">Resume</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="project-page">
+  <div class="project-page-inner">
+    <a class="back-link" href="../index.html#projects">&larr; Back to projects</a>
+    <h1 class="project-title">Calculator &amp; Alarm Clock</h1>
+    <div class="tags project-page-tags"><span>Assembly</span><span>VHDL</span><span>DE1-SoC</span></div>
+    <article class="prose">
+<p id="40261a78-c052-4c8f-8f47-252fcdf20b73" class="">For this project, I used Assembly programming on the De1-Soc board to create the Calculator and VHDL using the Quartus software to create the Alarm clock. </p><h3 id="5b3eea96-6c97-4487-b05b-5f842b7446a2" class="">Calculator </h3><p id="f5df8dba-f230-4083-bedf-23c7111245aa" class="">First I use the switches to input the number that represents the mathematical operation and I confirm by pushing Key 1 (for example for addition I input 1 using the switch keys then I press key 1 and after that, I can do the operation). For this project I used the math32 library and created my own functions for the modulo, hex, and integer square root operations.</p><figure id="304e9b8a-e471-4d78-a031-8be05ad102e1" class="image"><a href="../assets/img/calculator-alarm-clock/calculator.gif"><img loading="lazy" style="width:600px" src="../assets/img/calculator-alarm-clock/calculator.gif"/></a></figure><p id="b4b432f1-37b9-44ef-b25b-084abd4f2f1f" class="">In the video, I do the following operations:</p><ul id="4505ec8e-43c7-4fa8-9a0f-645105564813" class="bulleted-list"><li style="list-style-type:disc">30 + 501 and it returns 531</li></ul><ul id="3a354cdb-ffa5-4962-8c0b-449bd5297f59" class="bulleted-list"><li style="list-style-type:disc">2 - 62 = 60</li></ul><ul id="406f8dd6-5933-45fa-a26a-ef26fc115d0c" class="bulleted-list"><li style="list-style-type:disc">2 * 605 = 1210</li></ul><ul id="c6e67bb0-0acf-47c4-ac11-cf49385e1018" class="bulleted-list"><li style="list-style-type:disc">840 / 4 = 210</li></ul><ul id="f27593d2-0f9f-4d91-abde-a95a918b4460" class="bulleted-list"><li style="list-style-type:disc">910 % 3 = 1 (modulo)</li></ul><ul id="15b703c8-a41e-4459-a638-b29e93562c8d" class="bulleted-list"><li style="list-style-type:disc">432 convert to hex = 1b0</li></ul><ul id="0c65d6a9-63de-400a-ba36-c139312eba11" class="bulleted-list"><li style="list-style-type:disc">isqrt(65) = 8 and isqrt(899974) = 948</li></ul><h3 id="25206eba-46b2-4b0b-a45d-1872b7cec566" class="">Clock/Alarm</h3><figure id="01c8385d-ba27-4232-9145-ece8da829533" class="image"><a href="../assets/img/calculator-alarm-clock/clock.gif"><img loading="lazy" style="width:600px" src="../assets/img/calculator-alarm-clock/clock.gif"/></a></figure><p id="e4ac3a9d-25fb-43dd-9755-5a5150ad4f1c" class="">In this video, at first, I set the time by inputting the numbers in binary using the switch keys on the left and then pushing the keys on the right (Key 1 saves the input for hours, Key 2 pushes the input for minutes, Key 3 pushes the input for seconds, and Key 4 pushes the whole number to the display). The light on the far left indicates AM when on and PM when off. I then set an alarm to 12:05 by inputting the number using the switch keys to save it and it is indicated that it goes off at 12:05 by the LED on the left turning on. </p>
+    </article>
+    <a class="back-link back-link-bottom" href="../index.html#projects">&larr; Back to projects</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Ehsan Al Twal</p>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

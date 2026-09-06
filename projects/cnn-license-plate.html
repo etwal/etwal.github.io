@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CNN for License Plate Identification | Ehsan Al Twal</title>
+<meta name="description" content="CNN for License Plate Identification, a project by Ehsan Al Twal." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<div class="noise" aria-hidden="true"></div>
+
+<header class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">EA<span>.</span></a>
+    <nav class="nav-links" id="nav-links">
+      <a href="../index.html#projects">All Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../assets/resume.pdf" target="_blank" rel="noopener" class="btn btn-small">Resume</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="project-page">
+  <div class="project-page-inner">
+    <a class="back-link" href="../index.html#projects">&larr; Back to projects</a>
+    <h1 class="project-title">CNN for License Plate Identification</h1>
+    <div class="tags project-page-tags"><span>CNN</span><span>Python</span><span>Dataset Curation</span></div>
+    <article class="prose">
+<figure id="68621049-a3f6-49f1-9bd3-8be4acf448e3" class="image"><a href="../assets/img/cnn-license-plate.png"><img loading="lazy" style="width:679px" src="../assets/img/cnn-license-plate.png"/></a></figure><p id="47ecb90f-e0db-432d-822b-2481fd53ca2e" class="">For this project, I used a Convolution Neural Network to Identify the characters in an image of a License plate.</p><p id="ec576a01-caa8-46f8-96ce-7d2e9b8600d4" class="">I sorted the images of characters into folders and I gave each character a one-hot encoder vector so when the prediction vector is output I can figure out which letter the network thinks is in the photo and how strong the prediction was. These vectors also helped as they quantified the characters.</p><p id="13f2d8bb-5f04-46b2-95d5-5fe9e0e12b80" class="">I created a data set of 540 characters and I split the dataset into 60% training 20% validation 20% testing.</p><p id="427cf40e-5352-4c42-a56e-55080a31c401" class="">Here is a link to my Google Colab code: </p><figure id="5a4c7b90-87c2-4d7f-bd84-63ee8722c08a"><a href="https://colab.research.google.com/drive/1lx1VQDmbiOqWBNAM61mtFnOFmIjT58-9?usp=sharing" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Google Colaboratory</div></div><div class="bookmark-href"><img loading="lazy" src="https://ssl.gstatic.com/colaboratory-static/common/c1a0e2f7a1631a221ddb0c0c63402e65/img/favicon.ico" class="icon bookmark-icon"/>https://colab.research.google.com/drive/1lx1VQDmbiOqWBNAM61mtFnOFmIjT58-9?usp=sharing</div></div><img loading="lazy" src="https://colab.research.google.com/img/colab_favicon_256px.png" class="bookmark-image"/></a></figure>
+    </article>
+    <a class="back-link back-link-bottom" href="../index.html#projects">&larr; Back to projects</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Ehsan Al Twal</p>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
