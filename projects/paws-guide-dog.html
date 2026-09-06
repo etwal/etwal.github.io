@@ -45,6 +45,19 @@
 
 <p><strong>My role was the controls subsystem.</strong> I owned the module that turns a planned path plus a live pose estimate into linear and angular velocity commands for the quadruped, and I spent most of the year on it: baseline bring up, a PD controller that failed, the adaptive Pure Pursuit tracker that replaced it, and the predictive speed profiling that made it safe around people. Along the way I also did a large share of the system integration, the on-robot deployment of the prediction model, and most of the debugging infrastructure the rest of the stack was developed against.</p>
 
+<figure class="video-duo">
+  <div class="video-duo-grid">
+    <video src="../assets/video/paws-guide-dog/robot.mp4" poster="../assets/video/paws-guide-dog/robot-poster.jpg" preload="metadata" muted playsinline aria-label="PAWS walking autonomously through the Engineering Physics Project Lab past people"></video>
+    <video src="../assets/video/paws-guide-dog/planner.mp4" poster="../assets/video/paws-guide-dog/planner-poster.jpg" preload="metadata" muted playsinline aria-label="Top down planner view showing the occupancy grid, the planned path and live planner telemetry"></video>
+  </div>
+  <div class="video-duo-controls">
+    <button class="video-duo-btn" type="button"><span>Play both</span></button>
+    <input class="video-duo-scrub" type="range" min="0" max="0" step="0.05" value="0" aria-label="Seek both clips" />
+    <span class="video-duo-time">0:00 / 0:00</span>
+  </div>
+  <figcaption>The finished system running in the Engineering Physics Project Lab. Left: PAWS navigating on its own around people. Right: the planner view it is driving from, with the occupancy grid, the A* path in red, and live planner status, path point count and cycle time. Both clips play together.</figcaption>
+</figure>
+
 <h2>System architecture</h2>
 
 <figure class="image"><a href="../assets/img/paws-guide-dog/system-architecture.png"><img loading="lazy" src="../assets/img/paws-guide-dog/system-architecture.png" alt="Block diagram showing sensors feeding SLAM, a map updater, a path planner, a controller and a vision language model" /></a><figcaption>The five subsystems and how they interact: perception, path planner, map updater, controller, and vision language model.</figcaption></figure>
