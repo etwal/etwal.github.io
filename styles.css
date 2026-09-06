@@ -781,3 +781,15 @@ img { max-width: 100%; display: block; }
   .role { padding: 22px 20px; }
   .role-meta { text-align: left; }
 }
+
+/* Single inline video figure */
+.prose figure.video { text-align: center; }
+.prose figure.video video {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: inline-block;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0a0c10;
+}
