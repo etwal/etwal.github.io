@@ -66,7 +66,7 @@
         <p class="about-text">
           I am a 5th-year Engineering Physics student at the University of British Columbia, specializing in Software/Firmware and Robotics, and I graduate in December 2026. Alongside my degree I work as a Software Engineer at Sanctuary AI.
           I like projects that force me to work across the whole stack, from board bring-up and embedded firmware up through control loops, computer vision, and the occasional Unity game built for fun.
-          For my capstone I built the controls stack for PAWS, a voice controlled autonomous guide dog on a Unitree Go2 quadruped that navigates crowded indoor spaces. On UBC Formula Electric I design the PCBs that keep our race car's battery pack alive and monitored. Outside of that I have built autonomous robots, trained CNNs to read the world, and written a fair amount of Assembly and VHDL I am still proud of.
+          For my capstone I built the controls stack for PAWS, a voice controlled autonomous guide dog on a Unitree Go2 quadruped that navigates crowded indoor spaces, and the year before that I owned the Class E driver circuit that creates and confines a plasma toroid for the Plasma Donut Controller. On UBC Formula Electric I design the PCBs that keep our race car's battery pack alive and monitored. Outside of that I have built autonomous robots, trained CNNs to read the world, and written a fair amount of Assembly and VHDL I am still proud of.
         </p>
         <div class="about-stats">
           <div class="stat">
@@ -78,7 +78,7 @@
             <span class="stat-label">Graduating December</span>
           </div>
           <div class="stat">
-            <span class="stat-num">8+</span>
+            <span class="stat-num">9+</span>
             <span class="stat-label">Projects shipped</span>
           </div>
         </div>
@@ -133,6 +133,18 @@
             <h3>PAWS: Autonomous Guide Dog <span class="card-badge">Capstone</span></h3>
             <p>My Engineering Physics capstone: a voice controlled autonomous guide dog on a Unitree Go2 quadruped, deployed at the 2026 Project Fair. I owned the controls subsystem, replacing an oscillating PD tracker with an adaptive Pure Pursuit controller, a turn in place recovery state machine, and Menger curvature speed profiling. I also deployed the CNN and Transformer occupancy prediction model on the robot and built the debugging tooling the stack was developed against.</p>
             <div class="tags"><span>ROS 2</span><span>Controls</span><span>Pure Pursuit</span><span>LiDAR SLAM</span><span>Transformers</span></div>
+            <span class="project-link">View project &rarr;</span>
+          </div>
+        </a>
+
+        <a class="project-card featured" href="projects/plasma-donut-controller.html">
+          <div class="project-media">
+            <img src="assets/img/plasma-donut-controller.jpg" alt="A glowing magenta plasma ring inside a glass globe seated on a green circuit board" loading="lazy" />
+          </div>
+          <div class="project-body">
+            <h3>Plasma Donut Controller <span class="card-badge">Capstone</span></h3>
+            <p>My first Engineering Physics capstone: a device that creates and confines a radio frequency plasma toroid inside a globe of noble gas. I owned the driver circuit, a Class E oscillator that puts a large 13 MHz current through the primary coil, and modelled the plasma in LTspice as a loosely coupled secondary. The toroid only appeared once I got the MOSFETs zero voltage switching, which moved the losses out of the transistors and into the gas.</p>
+            <div class="tags"><span>Class E Oscillator</span><span>RF Electronics</span><span>LTspice</span><span>PCB Bring-up</span><span>Plasma Physics</span></div>
             <span class="project-link">View project &rarr;</span>
           </div>
         </a>
