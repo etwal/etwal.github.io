@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ValueMeals | Ehsan Al Twal</title>
+<meta name="description" content="ValueMeals, a Chrome extension by Ehsan Al Twal that ranks nearby Uber Eats meals by estimated cost per meal rather than listed price." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<div class="noise" aria-hidden="true"></div>
+
+<header class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">EA<span>.</span></a>
+    <nav class="nav-links" id="nav-links">
+      <a href="../index.html#projects">All Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../assets/resume.pdf" target="_blank" rel="noopener" class="btn btn-small">Resume</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="project-page">
+  <div class="project-page-inner">
+    <a class="back-link" href="../index.html#projects">&larr; Back to projects</a>
+    <h1 class="project-title">ValueMeals</h1>
+    <div class="tags project-page-tags"><span>Chrome Extension</span><span>Manifest V3</span><span>JavaScript</span><span>Service Worker</span><span>Stripe</span><span>Product</span></div>
+    <article class="prose">
+
+<figure class="image"><a href="../assets/img/valuemeals.png"><img loading="lazy" src="../assets/img/valuemeals.png" alt="The ValueMeals logo, a fork whose tines form a checkmark, beside the ValueMeals wordmark" /></a></figure>
+
+<p><strong>ValueMeals is a Chrome extension that ranks nearby Uber Eats meals by what they actually cost you per meal.</strong> The listed price on a menu tile is not the price you pay, and it says nothing about how much food you get. A $12 item that arrives with $7 of fees and feeds you once is worse value than an $18 item that feeds you twice. ValueMeals computes both halves of that and sorts by the result.</p>
+
+<p>I built the whole thing solo: the extension, the ranking engine, the paywall, the landing page, and the payment and compliance work behind shipping it as a paid product. It is a side project, not coursework.</p>
+
+<h2>The metric</h2>
+
+<p>Every ranked item gets an <strong>effective checkout price</strong> divided by a <strong>Standard Meal Unit</strong> count.</p>
+
+<p>The effective price is the item price plus the store's delivery fee plus an estimated service fee, which I model at 15% of the item price capped at $4. Delivery comes from the structured <code>fareInfo</code> payload when it is present, and falls back to parsing the fee text off the feed tile when it is not.</p>
+
+<p>The Standard Meal Unit is the harder half. It is my estimate of how many actual meals an item represents, and it is the part that makes the ranking mean anything. A 20 piece chicken tender box, a large pizza, a single taco and a poke bowl are all one line item, and they are not one meal each. The estimator works through a chain of specialized cases:</p>
+
+<ul>
+<li>Explicit piece counts, so a 20 piece and a 6 piece are not treated alike</li>
+<li>Pizza sizing, read from both the item text and the section and store context</li>
+<li>Sushi, tacos, burgers, hotdogs, bowls, and family or party packs, each with their own portion rules</li>
+<li>An order multiplier for "2 for", twin packs and n-packs, guarded so that a "2 for" on a sandwich or an ice cream chain does not get double counted</li>
+</ul>
+
+<p>Text is normalized first: lowercased, accents stripped, punctuation flattened, so that menu items written a dozen different ways collapse to something matchable.</p>
+
+<h2>Promotions</h2>
+
+<p>Promotions were where my first instincts were wrong. A buy one get one offer does not make the item half price, it doubles the food, so ValueMeals doubles the meal count rather than reducing the checkout total. That produces a very different ranking, and a more honest one.</p>
+
+<p>Threshold promotions are applied only when a single item actually clears the minimum subtotal, and explicit sale prices are not discounted a second time by a percentage label that has already been applied. Getting that wrong inflates every deal on the page, which is exactly the failure mode that would make the extension useless.</p>
+
+<h2>Getting the data</h2>
+
+<p>The extension has no backend. It reads what the signed-in browser session can already see.</p>
+
+<p>I started with a throwaway spike to answer one question: can a Manifest V3 extension call Uber Eats' feed and store endpoints using the user's own session? The answer was yes, but not from where I expected. Cookies available to the service worker alone are not sufficient, so the requests run in page context through a content script. The delivery location turned out to live in an HttpOnly cookie, which the extension parses rather than asking the user to re-enter an address. The spike still sits in the repo as reference, deliberately separate from the shipped extension so its broader development permissions can never leak into a production build.</p>
+
+<p>A scan then covers up to 100 nearby restaurants. That is a lot of menu requests against an API that pushes back, so the data layer is built around not getting throttled:</p>
+
+<ul>
+<li>Menu fetches run at concurrency 12 with 50 ms pacing between requests</li>
+<li>Up to 3 attempts each with exponential backoff</li>
+<li>429 and 403 are both treated as throttling, and after 12 consecutive throttles the scan stops and returns partial results instead of failing outright</li>
+<li>Compact 15 minute caches, cleared on a timer, so repeat scans in the same session are nearly free</li>
+<li>Billboards, grocery and convenience merchants are skipped, since ranking a bag of chips against a burrito is meaningless</li>
+</ul>
+
+<p>Returning usable partial results under sustained throttling mattered more than I expected. A scan that gives you 60 good stores beats one that gives you an error.</p>
+
+<h2>The paywall</h2>
+
+<figure class="image"><a href="../assets/img/valuemeals/icon.png"><img loading="lazy" style="width:320px" src="../assets/img/valuemeals/icon.png" alt="The ValueMeals icon, a green fork whose tines form a checkmark" /></a></figure>
+
+<p>The free tier ranks. Pro adds category filters and a dish search that looks up a specific dish across Uber Eats search results and ranks the matches by estimated cost per meal.</p>
+
+<p>The security decision that shaped this: <strong>the popup is never trusted for entitlement.</strong> Ranking, filter access, dish search and deal opening are all authorized inside the service worker, and the popup only ever receives results that have already been gated. Putting the check in the UI would have been simpler and would have taken about thirty seconds to bypass. Subscriptions run through ExtensionPay against Stripe.</p>
+
+<p>Testing the payment states taught me something non-obvious: refunding a charge does not cancel a subscription. Stripe and ExtensionPay treat "refunded" and "unsubscribed" as separate states, so a refund on its own leaves the extension unlocked. Revoking access requires an explicit cancellation paired with the refund. I only found that by running the flows in test mode and checking what the extension actually did afterwards.</p>
+
+<h2>Testing</h2>
+
+<p>The parsing and ranking logic is covered by ten test suites run under Node's built-in test runner, over cache behaviour, cookie parsing, feed and menu parsing, fee extraction, the paywall, scan policy, item matching, popup URLs, and the SMU calculator itself. The SMU suite is the largest by a wide margin, because that is where the regressions live: sides, convenience add-ons, a la carte sushi, undersized portions, dessert "pie" being read as pizza, pizza context, and items that appear across multiple stores.</p>
+
+<h2>Shipping it as a product</h2>
+
+<p>Most of what I did not anticipate was here. Writing the extension was the familiar part. Around it I also built and published the landing page at <a href="https://valuemealsext.com" target="_blank" rel="noopener">valuemealsext.com</a>, along with a privacy policy, terms, refund policy and cancellation instructions, then completed Chrome Web Store publisher verification and the permission justifications, data use disclosure and Limited Use statement the store requires.</p>
+
+<p>The pricing is CA$4.99 per month. It was originally monthly plus annual, and I removed the annual plan after reading British Columbia's rules on automatically renewing subscriptions, on the grounds that I would rather ship one plan I am confident is compliant than two I am not.</p>
+
+<h2>Status</h2>
+
+<p>The extension, paywall, Pro dish search and landing page are built, the publisher identity is verified and Stripe is connected. What is left is the store listing and end to end production payment checks, plus the thing that actually gates quality: validating rankings against enough real scans to find the remaining false positives and false negatives in portion estimation.</p>
+
+<p>The honest risk is the data source. The extension depends on undocumented session endpoints that Uber can change or restrict at any time, which is a product risk I track rather than one I have solved.</p>
+
+    </article>
+    <a class="back-link back-link-bottom" href="../index.html#projects">&larr; Back to projects</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Ehsan Al Twal</p>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
