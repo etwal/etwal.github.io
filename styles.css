@@ -638,3 +638,19 @@ img { max-width: 100%; display: block; }
   .project-card.featured { grid-column: span 1; flex-direction: column; }
   .project-card.featured .project-media { width: 100%; aspect-ratio: 16/10; }
 }
+
+.card-badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(125, 211, 252, 0.1);
+  color: var(--accent-2);
+  border: 1px solid rgba(125, 211, 252, 0.22);
+}
