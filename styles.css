@@ -757,17 +757,25 @@ img { max-width: 100%; display: block; }
 }
 .role {
   display: flex;
-  gap: 18px;
+  gap: 20px;
   padding: 18px 20px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
+.role:hover {
+  transform: translateY(-3px);
+  border-color: rgba(110, 231, 183, 0.4);
+}
+/* Stretches to the height of the text block beside it. The sources are
+   square, so a square-ish column scales them without distorting. */
 .role-media {
   flex: 0 0 auto;
-  display: block;
-  width: 72px;
-  height: 72px;
+  align-self: stretch;
+  width: 190px;
   border-radius: 9px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -779,7 +787,7 @@ img { max-width: 100%; display: block; }
   object-fit: cover;
   transition: transform 0.3s ease;
 }
-.role-media:hover img { transform: scale(1.06); }
+.role:hover .role-media img { transform: scale(1.05); }
 .role-content { flex: 1 1 auto; min-width: 0; }
 .role-head {
   display: flex;
@@ -825,9 +833,13 @@ img { max-width: 100%; display: block; }
   color: var(--text);
   font-weight: 600;
 }
+@media (max-width: 860px) {
+  .role-media { width: 140px; }
+}
 @media (max-width: 560px) {
-  .role { padding: 16px; gap: 13px; }
-  .role-media { width: 54px; height: 54px; }
+  .role { padding: 16px; gap: 14px; }
+  /* Too narrow to sit beside the text: pin a small square to the top. */
+  .role-media { align-self: flex-start; width: 68px; height: 68px; }
   .role-meta { text-align: left; }
 }
 
