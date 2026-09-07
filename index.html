@@ -17,7 +17,7 @@
 
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#top" class="logo">EA<span>.</span></a>
+    <a href="#top" class="logo">ET<span>.</span></a>
     <nav class="nav-links" id="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -100,15 +100,9 @@
           </div>
         </div>
         <div class="skill-card">
-          <h3>Firmware &amp; Embedded</h3>
+          <h3>Firmware &amp; Electrical</h3>
           <div class="tags">
-            <span>C / C++</span><span>STM32</span><span>AX58400</span><span>Teensy 4.0</span><span>RTOS</span><span>FOC</span><span>BLDC Motor Control</span><span>SPI / I2C / CAN</span><span>J-Link</span><span>Assembly</span><span>VHDL</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Electrical</h3>
-          <div class="tags">
-            <span>Electrical Systems Design</span><span>PCB Design (Altium)</span><span>Circuit Debugging</span><span>Soldering</span><span>RF</span><span>FPGAs (DE1-SoC)</span><span>isoSPI</span>
+            <span>C / C++</span><span>STM32</span><span>AX58400</span><span>Teensy 4.0</span><span>RTOS</span><span>FOC</span><span>BLDC Motor Control</span><span>SPI / I2C / CAN</span><span>J-Link</span><span>Assembly</span><span>VHDL</span><span>Electrical Systems Design</span><span>PCB Design (Altium)</span><span>Circuit Debugging</span><span>Soldering</span><span>RF</span><span>FPGAs (DE1-SoC)</span><span>isoSPI</span>
           </div>
         </div>
         <div class="skill-card">
@@ -269,49 +263,64 @@
       <div class="experience-list">
 
         <article class="role">
-          <div class="role-head">
-            <div class="role-id">
-              <h3>Robot Software Engineer</h3>
-              <p class="role-org">Sanctuary AI</p>
+          <a class="role-media" href="https://sanctuary.ai/" target="_blank" rel="noopener" aria-label="Sanctuary AI">
+            <img src="assets/img/companies/sanctuary-ai.jpg" alt="Sanctuary AI hydraulic robot hand mounted on a robotic arm" loading="lazy" />
+          </a>
+          <div class="role-content">
+            <div class="role-head">
+              <div class="role-id">
+                <h3>Robot Software Engineer</h3>
+                <p class="role-org">Sanctuary AI</p>
+              </div>
+              <p class="role-meta"><span class="role-dates">Dec 2025 to Present</span><span class="role-place">Vancouver, Canada</span></p>
             </div>
-            <p class="role-meta"><span class="role-dates">Dec 2025 to Present</span><span class="role-place">Vancouver, Canada</span></p>
+            <ul>
+              <li><strong>Implemented a custom fault publisher and recovery controller</strong> to ensure safe fault recovery for bimanual dual UR robotic systems.</li>
+              <li><strong>Architected "MockCAT," an EtherCAT slave simulator</strong> that enables the software team to develop software and emulate full robotic hand networks without hardware.</li>
+              <li><strong>Deployed an IgH EtherCAT master on an NVIDIA Jetson Orin</strong> to control hydraulic robot hands, achieving stable 1 kHz control loops.</li>
+              <li><strong>Benchmarked real-time control paths across computing architectures</strong>, isolating DDS middleware latency to optimize the hand controller's network topology.</li>
+            </ul>
           </div>
-          <ul>
-            <li><strong>Implemented a custom fault publisher and recovery controller</strong> to ensure safe fault recovery for bimanual dual UR robotic systems.</li>
-            <li><strong>Architected "MockCAT," an EtherCAT slave simulator</strong> that enables the software team to develop software and emulate full robotic hand networks without hardware.</li>
-            <li><strong>Deployed an IgH EtherCAT master on an NVIDIA Jetson Orin</strong> to control hydraulic robot hands, achieving stable 1 kHz control loops.</li>
-            <li><strong>Benchmarked real-time control paths across computing architectures</strong>, isolating DDS middleware latency to optimize the hand controller's network topology.</li>
-          </ul>
         </article>
 
         <article class="role">
-          <div class="role-head">
-            <div class="role-id">
-              <h3>Firmware Engineer</h3>
-              <p class="role-org">Sanctuary AI</p>
+          <a class="role-media" href="https://sanctuary.ai/" target="_blank" rel="noopener" aria-label="Sanctuary AI">
+            <img src="assets/img/companies/sanctuary-ai.jpg" alt="Sanctuary AI hydraulic robot hand mounted on a robotic arm" loading="lazy" />
+          </a>
+          <div class="role-content">
+            <div class="role-head">
+              <div class="role-id">
+                <h3>Firmware Engineer</h3>
+                <p class="role-org">Sanctuary AI</p>
+              </div>
+              <p class="role-meta"><span class="role-dates">May 2025 to Dec 2025</span><span class="role-place">Vancouver, Canada</span></p>
             </div>
-            <p class="role-meta"><span class="role-dates">May 2025 to Dec 2025</span><span class="role-place">Vancouver, Canada</span></p>
+            <ul>
+              <li><strong>Developed the robot's hydraulic power unit firmware on AX58400:</strong> system monitoring, safety interlocks, fan control, ECAT communication, and dual-core IPC.</li>
+              <li><strong>Tripled team throughput</strong> by building a local EtherCAT dev and test suite GUI, replacing a shared Speedgoat resource and parallelizing development. Added a Pytest tool automating 75 PDO tests per second.</li>
+              <li><strong>Developed a full-stack tactile data pipeline</strong> (firmware, EtherCAT master and slave, and a ROS 2 bridge) to stream sensor data and enable live teleoperation haptics.</li>
+            </ul>
           </div>
-          <ul>
-            <li><strong>Developed the robot's hydraulic power unit firmware on AX58400:</strong> system monitoring, safety interlocks, fan control, ECAT communication, and dual-core IPC.</li>
-            <li><strong>Tripled team throughput</strong> by building a local EtherCAT dev and test suite GUI, replacing a shared Speedgoat resource and parallelizing development. Added a Pytest tool automating 75 PDO tests per second.</li>
-            <li><strong>Developed a full-stack tactile data pipeline</strong> (firmware, EtherCAT master and slave, and a ROS 2 bridge) to stream sensor data and enable live teleoperation haptics.</li>
-          </ul>
         </article>
 
         <article class="role">
-          <div class="role-head">
-            <div class="role-id">
-              <h3>Electrical Engineer / Firmware Engineer</h3>
-              <p class="role-org">Sarcomere Dynamics</p>
+          <a class="role-media" href="https://sarcomeredynamics.com/home" target="_blank" rel="noopener" aria-label="Sarcomere Dynamics">
+            <img src="assets/img/companies/sarcomere-dynamics.png" alt="Sarcomere Dynamics humanoid robot with two dexterous robotic hands" loading="lazy" />
+          </a>
+          <div class="role-content">
+            <div class="role-head">
+              <div class="role-id">
+                <h3>Electrical Engineer / Firmware Engineer</h3>
+                <p class="role-org">Sarcomere Dynamics</p>
+              </div>
+              <p class="role-meta"><span class="role-dates">May 2024 to Dec 2024</span><span class="role-place">Vancouver, Canada</span></p>
             </div>
-            <p class="role-meta"><span class="role-dates">May 2024 to Dec 2024</span><span class="role-place">Vancouver, Canada</span></p>
+            <ul>
+              <li><strong>Achieved a 3x product cost reduction</strong> by designing a new electrical system and control firmware in C on STM32 for a new robotic hand.</li>
+              <li><strong>Extended product lifespan from 1 to 5 years</strong> by redesigning the electrical system with BLDC motors, designing a motor controller PCB, and developing an FOC library.</li>
+              <li><strong>Reduced motor size by 30% and improved accuracy</strong> by replacing Hall effect sensors with a magnetic sensor and current sensing.</li>
+            </ul>
           </div>
-          <ul>
-            <li><strong>Achieved a 3x product cost reduction</strong> by designing a new electrical system and control firmware in C on STM32 for a new robotic hand.</li>
-            <li><strong>Extended product lifespan from 1 to 5 years</strong> by redesigning the electrical system with BLDC motors, designing a motor controller PCB, and developing an FOC library.</li>
-            <li><strong>Reduced motor size by 30% and improved accuracy</strong> by replacing Hall effect sensors with a magnetic sensor and current sensing.</li>
-          </ul>
         </article>
 
       </div>
