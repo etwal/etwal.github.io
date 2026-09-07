@@ -285,8 +285,9 @@ img { max-width: 100%; display: block; }
 /* Skills */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  align-items: start;
 }
 .skill-card {
   padding: 24px;
@@ -661,6 +662,7 @@ img { max-width: 100%; display: block; }
   .nav-toggle { display: flex; }
 
   .about-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
   .projects-grid { grid-template-columns: 1fr; }
   .project-card.featured { grid-column: span 1; flex-direction: column; }
   .project-card.featured .project-media { width: 100%; aspect-ratio: 16/10; }
@@ -748,6 +750,7 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 620px) {
   .video-duo-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
 }
 
 /* Experience */
