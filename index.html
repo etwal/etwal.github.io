@@ -21,8 +21,8 @@
     <nav class="nav-links" id="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
       <a href="assets/resume.pdf" target="_blank" rel="noopener" class="btn btn-small">Resume</a>
     </nav>
@@ -121,9 +121,81 @@
     </div>
   </section>
 
-  <section id="projects" class="section">
+  <section id="experience" class="section">
     <div class="section-inner">
-      <p class="section-tag">03 / Projects</p>
+      <p class="section-tag">03 / Experience</p>
+      <h2 class="section-title">Where I have worked</h2>
+
+      <div class="experience-list">
+
+        <article class="role">
+          <a class="role-media" href="https://sanctuary.ai/" target="_blank" rel="noopener" aria-label="Sanctuary AI">
+            <img src="assets/img/companies/sanctuary-ai.jpg" alt="Sanctuary AI hydraulic robot hand mounted on a robotic arm" loading="lazy" />
+          </a>
+          <div class="role-content">
+            <div class="role-head">
+              <div class="role-id">
+                <h3>Robot Software Engineer</h3>
+                <p class="role-org">Sanctuary AI</p>
+              </div>
+              <p class="role-meta"><span class="role-dates">Dec 2025 to Present</span><span class="role-place">Vancouver, Canada</span></p>
+            </div>
+            <ul>
+              <li><strong>Implemented a custom fault publisher and recovery controller</strong> to ensure safe fault recovery for bimanual dual UR robotic systems.</li>
+              <li><strong>Architected "MockCAT," an EtherCAT slave simulator</strong> that enables the software team to develop software and emulate full robotic hand networks without hardware.</li>
+              <li><strong>Deployed an IgH EtherCAT master on an NVIDIA Jetson Orin</strong> to control hydraulic robot hands, achieving stable 1 kHz control loops.</li>
+              <li><strong>Benchmarked real-time control paths across computing architectures</strong>, isolating DDS middleware latency to optimize the hand controller's network topology.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role">
+          <a class="role-media" href="https://sanctuary.ai/" target="_blank" rel="noopener" aria-label="Sanctuary AI">
+            <img src="assets/img/companies/sanctuary-ai.jpg" alt="Sanctuary AI hydraulic robot hand mounted on a robotic arm" loading="lazy" />
+          </a>
+          <div class="role-content">
+            <div class="role-head">
+              <div class="role-id">
+                <h3>Firmware Engineer</h3>
+                <p class="role-org">Sanctuary AI</p>
+              </div>
+              <p class="role-meta"><span class="role-dates">May 2025 to Dec 2025</span><span class="role-place">Vancouver, Canada</span></p>
+            </div>
+            <ul>
+              <li><strong>Developed the robot's hydraulic power unit firmware on AX58400:</strong> system monitoring, safety interlocks, fan control, ECAT communication, and dual-core IPC.</li>
+              <li><strong>Tripled team throughput</strong> by building a local EtherCAT dev and test suite GUI, replacing a shared Speedgoat resource and parallelizing development. Added a Pytest tool automating 75 PDO tests per second.</li>
+              <li><strong>Developed a full-stack tactile data pipeline</strong> (firmware, EtherCAT master and slave, and a ROS 2 bridge) to stream sensor data and enable live teleoperation haptics.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role">
+          <a class="role-media" href="https://sarcomeredynamics.com/home" target="_blank" rel="noopener" aria-label="Sarcomere Dynamics">
+            <img src="assets/img/companies/sarcomere-dynamics.png" alt="A white dexterous robotic hand built by Sarcomere Dynamics" loading="lazy" />
+          </a>
+          <div class="role-content">
+            <div class="role-head">
+              <div class="role-id">
+                <h3>Electrical Engineer / Firmware Engineer</h3>
+                <p class="role-org">Sarcomere Dynamics</p>
+              </div>
+              <p class="role-meta"><span class="role-dates">May 2024 to Dec 2024</span><span class="role-place">Vancouver, Canada</span></p>
+            </div>
+            <ul>
+              <li><strong>Achieved a 3x product cost reduction</strong> by designing a new electrical system and control firmware in C on STM32 for a new robotic hand.</li>
+              <li><strong>Extended product lifespan from 1 to 5 years</strong> by redesigning the electrical system with BLDC motors, designing a motor controller PCB, and developing an FOC library.</li>
+              <li><strong>Reduced motor size by 30% and improved accuracy</strong> by replacing Hall effect sensors with a magnetic sensor and current sensing.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section section-alt">
+    <div class="section-inner">
+      <p class="section-tag">04 / Projects</p>
       <h2 class="section-title">Selected work</h2>
 
       <div class="projects-grid">
@@ -250,78 +322,6 @@
             <span class="project-link">View project &rarr;</span>
           </div>
         </a>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="experience" class="section section-alt">
-    <div class="section-inner">
-      <p class="section-tag">04 / Experience</p>
-      <h2 class="section-title">Where I have worked</h2>
-
-      <div class="experience-list">
-
-        <article class="role">
-          <a class="role-media" href="https://sanctuary.ai/" target="_blank" rel="noopener" aria-label="Sanctuary AI">
-            <img src="assets/img/companies/sanctuary-ai.jpg" alt="Sanctuary AI hydraulic robot hand mounted on a robotic arm" loading="lazy" />
-          </a>
-          <div class="role-content">
-            <div class="role-head">
-              <div class="role-id">
-                <h3>Robot Software Engineer</h3>
-                <p class="role-org">Sanctuary AI</p>
-              </div>
-              <p class="role-meta"><span class="role-dates">Dec 2025 to Present</span><span class="role-place">Vancouver, Canada</span></p>
-            </div>
-            <ul>
-              <li><strong>Implemented a custom fault publisher and recovery controller</strong> to ensure safe fault recovery for bimanual dual UR robotic systems.</li>
-              <li><strong>Architected "MockCAT," an EtherCAT slave simulator</strong> that enables the software team to develop software and emulate full robotic hand networks without hardware.</li>
-              <li><strong>Deployed an IgH EtherCAT master on an NVIDIA Jetson Orin</strong> to control hydraulic robot hands, achieving stable 1 kHz control loops.</li>
-              <li><strong>Benchmarked real-time control paths across computing architectures</strong>, isolating DDS middleware latency to optimize the hand controller's network topology.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="role">
-          <a class="role-media" href="https://sanctuary.ai/" target="_blank" rel="noopener" aria-label="Sanctuary AI">
-            <img src="assets/img/companies/sanctuary-ai.jpg" alt="Sanctuary AI hydraulic robot hand mounted on a robotic arm" loading="lazy" />
-          </a>
-          <div class="role-content">
-            <div class="role-head">
-              <div class="role-id">
-                <h3>Firmware Engineer</h3>
-                <p class="role-org">Sanctuary AI</p>
-              </div>
-              <p class="role-meta"><span class="role-dates">May 2025 to Dec 2025</span><span class="role-place">Vancouver, Canada</span></p>
-            </div>
-            <ul>
-              <li><strong>Developed the robot's hydraulic power unit firmware on AX58400:</strong> system monitoring, safety interlocks, fan control, ECAT communication, and dual-core IPC.</li>
-              <li><strong>Tripled team throughput</strong> by building a local EtherCAT dev and test suite GUI, replacing a shared Speedgoat resource and parallelizing development. Added a Pytest tool automating 75 PDO tests per second.</li>
-              <li><strong>Developed a full-stack tactile data pipeline</strong> (firmware, EtherCAT master and slave, and a ROS 2 bridge) to stream sensor data and enable live teleoperation haptics.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="role">
-          <a class="role-media" href="https://sarcomeredynamics.com/home" target="_blank" rel="noopener" aria-label="Sarcomere Dynamics">
-            <img src="assets/img/companies/sarcomere-dynamics.png" alt="A white dexterous robotic hand built by Sarcomere Dynamics" loading="lazy" />
-          </a>
-          <div class="role-content">
-            <div class="role-head">
-              <div class="role-id">
-                <h3>Electrical Engineer / Firmware Engineer</h3>
-                <p class="role-org">Sarcomere Dynamics</p>
-              </div>
-              <p class="role-meta"><span class="role-dates">May 2024 to Dec 2024</span><span class="role-place">Vancouver, Canada</span></p>
-            </div>
-            <ul>
-              <li><strong>Achieved a 3x product cost reduction</strong> by designing a new electrical system and control firmware in C on STM32 for a new robotic hand.</li>
-              <li><strong>Extended product lifespan from 1 to 5 years</strong> by redesigning the electrical system with BLDC motors, designing a motor controller PCB, and developing an FOC library.</li>
-              <li><strong>Reduced motor size by 30% and improved accuracy</strong> by replacing Hall effect sensors with a magnetic sensor and current sensing.</li>
-            </ul>
-          </div>
-        </article>
 
       </div>
     </div>
