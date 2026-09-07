@@ -132,3 +132,51 @@ document.querySelectorAll(".video-duo").forEach((duo) => {
   pickLead();
   setLabel();
 });
+
+/* Image figures link straight to the raw file. Open them in an in-page
+   lightbox instead, with a back button, so clicking never strands the
+   user on a bare image with no way back except the browser button. */
+const imageLinks = document.querySelectorAll("figure.image > a[href]");
+if (imageLinks.length) {
+  let lightbox = null;
+
+  const closeLightbox = () => {
+    if (!lightbox) return;
+    lightbox.remove();
+    lightbox = null;
+    document.removeEventListener("keydown", onKeydown);
+  };
+  const onKeydown = (e) => {
+    if (e.key === "Escape") closeLightbox();
+  };
+
+  const openLightbox = (href, alt) => {
+    lightbox = document.createElement("div");
+    lightbox.className = "lightbox";
+
+    const back = document.createElement("button");
+    back.type = "button";
+    back.className = "lightbox-back";
+    back.innerHTML = "&larr; Back";
+    back.addEventListener("click", closeLightbox);
+
+    const img = document.createElement("img");
+    img.src = href;
+    img.alt = alt;
+
+    lightbox.append(back, img);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.body.appendChild(lightbox);
+    document.addEventListener("keydown", onKeydown);
+  };
+
+  imageLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const img = link.querySelector("img");
+      openLightbox(link.getAttribute("href"), img ? img.alt : "");
+    });
+  });
+}
