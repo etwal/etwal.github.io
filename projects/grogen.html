@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Grogen | Ehsan Al Twal</title>
+<meta name="description" content="Grogen, a full stack meal planning and grocery list generator built by Ehsan Al Twal with React, Express, MongoDB and the OpenAI API." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<div class="noise" aria-hidden="true"></div>
+
+<header class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">EA<span>.</span></a>
+    <nav class="nav-links" id="nav-links">
+      <a href="../index.html#projects">All Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../assets/resume.pdf" target="_blank" rel="noopener" class="btn btn-small">Resume</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="project-page">
+  <div class="project-page-inner">
+    <a class="back-link" href="../index.html#projects">&larr; Back to projects</a>
+    <h1 class="project-title">Grogen</h1>
+    <div class="tags project-page-tags"><span>React</span><span>Node.js</span><span>Express</span><span>MongoDB</span><span>OpenAI API</span><span>Stripe</span><span>JWT</span></div>
+    <article class="prose">
+
+<figure class="image"><a href="../assets/img/grogen.png"><img loading="lazy" style="width:420px" src="../assets/img/grogen.png" alt="The Grogen logo, a friendly robot whose body is a shopping cart" /></a></figure>
+
+<p><strong>Grogen turns what you have and what you can spend into meal ideas and a grocery list.</strong> It works in two directions: give it recipes and it produces an organized shopping list with cost estimates, or give it the ingredients already in your kitchen and it suggests meals you can make from them. Servings, budget, and dietary preferences like high protein or no dairy shape the result.</p>
+
+<p>It is a full stack side project I built solo: React front end, Express and MongoDB back end, OpenAI for generation, JWT auth, and Stripe for the paid tier.</p>
+
+<h2>Architecture</h2>
+
+<p>The front end is a React app styled with Tailwind, using Radix primitives for the accessible interactive pieces. The back end is an Express server with Mongoose over MongoDB, storing each user's account, pantry contents and bookmarked recipes.</p>
+
+<p>Authentication is email and password, hashed with bcrypt and exchanged for a JWT. A small API client wrapper on the front end attaches the token to every request, so no component has to think about auth headers.</p>
+
+<p>The one decision I would call load bearing is that <strong>the OpenAI key never reaches the browser.</strong> Every generation call goes through my own <code>/api/openai/chat-completions</code> endpoint, which holds the key server side, forwards the request, and returns a generic "Generation failed" message on error rather than passing the upstream error body back. Putting the key in the React bundle would have been one line of code and would have published it to everyone who opened the site.</p>
+
+<h2>Generation</h2>
+
+<p>Most calls run against a chat model with <code>response_format: json_object</code>, so the model returns structured recipes rather than prose I have to scrape. Model output is not guaranteed well formed, though, so the parser tries <code>JSON.parse</code> first and falls back to splitting the response into sections on the recipe headings when that fails. That fallback is the difference between a bad response degrading and the whole feature breaking.</p>
+
+<p>Some pieces are more interesting than plain generation:</p>
+
+<ul>
+<li><strong>Photo ingredient detection.</strong> You can photograph your fridge or pantry and the app sends the image to a vision capable model, which reads it back as a list of ingredients you can generate meals from. It fails gracefully with a clear message when it cannot make anything out of the picture.</li>
+<li><strong>Ingredient swaps.</strong> Any ingredient can be swapped for alternatives. Because each line carries a price estimate, the app parses the price out of both the old and the new ingredient and adjusts the running total rather than regenerating the entire list.</li>
+<li><strong>Refinements.</strong> A generated list can be pushed cheaper, simpler, quicker, or higher protein without starting over.</li>
+</ul>
+
+<h2>Tiers and gating</h2>
+
+<figure class="image"><a href="../assets/img/grogen/logo.png"><img loading="lazy" style="width:300px" src="../assets/img/grogen/logo.png" alt="The Grogen robot shopping cart mascot" /></a></figure>
+
+<p>There are three tiers, described in a single configuration module that the rest of the app reads from:</p>
+
+<ul>
+<li><strong>Free trial</strong> for signed out visitors, with low daily limits so the app is usable before committing to an account</li>
+<li><strong>Free member</strong>, which raises the limits and unlocks the saved pantry and recipe bookmarks, since both need somewhere to persist</li>
+<li><strong>Premium</strong> at $4.99 a month or $29 a year, for unlimited refinements, budget optimization, pantry aware planning and weekly meal plans</li>
+</ul>
+
+<p>Keeping every limit and gate in one config file, rather than scattering conditionals through components, meant that changing what a tier includes was a single edit. Each feature declares its own anonymous limit, member limit, whether it needs an account, and the upgrade copy shown when someone hits the ceiling.</p>
+
+<p>Honest limitation: daily usage counts currently live in the browser's local storage, so they shape the experience rather than enforce it, and anyone willing to open dev tools can reset them. The account and payment state is server side, but the counters should be too. That is the first thing I would move if this went live, and it is the same lesson I applied later when I built a Chrome extension and put its entitlement checks in the service worker instead of the UI.</p>
+
+<h2>Where it got to</h2>
+
+<p>The app works end to end: accounts, pantry, bookmarks, both generation directions, photo detection, swaps and the Stripe checkout path. I also wrote an onboarding tutorial overlay, since the two directional flow is not obvious on first load, and drafted the app store listing, privacy policy and support pages for a release I have not made.</p>
+
+<p>It predates most of my professional work and it shows in places, but it is the project where I first built a complete product on my own: auth, a database, a paid tier, a third party API I had to keep secret, and a UI someone who is not me could use.</p>
+
+    </article>
+    <a class="back-link back-link-bottom" href="../index.html#projects">&larr; Back to projects</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Ehsan Al Twal</p>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
